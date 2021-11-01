@@ -103,7 +103,6 @@ watch(
 onBeforeUpdate(() => {
   elements.value = []
 })
-
 </script>
 
 <style lang="postcss">

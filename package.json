@@ -11,6 +11,7 @@
     "vite": "^2.6.5"
   },
   "dependencies": {
+    "@alexvipond/mulago-foundation-portfolio": "*",
     "vue": "^3.2.19"
   }
 }
