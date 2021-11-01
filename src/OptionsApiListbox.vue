@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref, watch, computed, onMounted, onBeforeUpdate } from 'vue'
+import { defineComponent } from 'vue'
 import { PropType } from 'vue'
 import IconCheck from './IconCheck.vue'
 

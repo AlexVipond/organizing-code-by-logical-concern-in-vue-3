@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@alexvipond/mulago-foundation-portfolio": "*",
+    "@fontsource/inter": "^4.5.0",
     "vue": "^3.2.19"
   }
 }
