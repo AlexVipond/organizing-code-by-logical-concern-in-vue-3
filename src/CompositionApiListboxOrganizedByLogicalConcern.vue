@@ -25,8 +25,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, computed, onBeforeUpdate } from 'vue'
+import { ref, watch, computed, onMounted, onBeforeUpdate } from 'vue'
 import IconCheck from './IconCheck.vue'
+
 
 // PROPS AND EMIT
 const props = defineProps<{
@@ -39,23 +40,8 @@ const emit = defineEmits<{
 }>()
 
 
-// DATA
+// ACTIVE
 const active = ref(0)
-
-const elements = ref([])
-
-
-// COMPUTED
-const selected = computed(() => {
-  const index = props.options.indexOf(props.modelValue)
-  return index === -1 ? 0 : index
-})
-
-
-// METHODS
-const select = (index: number) => {
-  emit('update:modelValue', props.options[index])
-}
 
 const activate = (index: number) => {
   active.value = index
@@ -77,19 +63,33 @@ const activateNext = (index: number) => {
   active.value = index + 1
 }
 
+const isActive = (index: number) => {
+  return index === active.value
+}
+
+
+// SELECTED
+const selected = computed(() => {
+  const index = props.options.indexOf(props.modelValue)
+  return index === -1 ? 0 : index
+})
+
+const select = (index: number) => {
+  emit('update:modelValue', props.options[index])
+}
+
 const isSelected = (index: number) => {
   return index === selected.value
 }
 
-const isActive = (index: number) => {
-  return index === active.value
-}
+
+// ELEMENTS
+const elements = ref([])
 
 const setElements = (el, index: number) => {
   elements.value[index] = el
 }
 
-// WATCH
 watch(
   active,
   () => {
@@ -98,8 +98,10 @@ watch(
   { flush: 'post' }
 )
 
+onMounted(() => {
+  elements.value[active.value].focus()
+})
 
-// LIFECYCLE
 onBeforeUpdate(() => {
   elements.value = []
 })
