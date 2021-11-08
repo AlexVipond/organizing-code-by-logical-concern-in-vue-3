@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul tabindex="-1">
     <li
       v-for="(option, index) in options"
       :key="option"
@@ -96,13 +96,13 @@ export default defineComponent({
 })
 </script>
 
-<style lang="postcss">
+<style scoped lang="postcss">
 ul {
   @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-md;
 }
 
 ul:has(:focus) {
-  @apply ring-2 ring-offset-2 ring-emerald-100;
+  @apply ring-2 ring-offset-2 ring-red-100;
 }
 
 li {
@@ -110,14 +110,14 @@ li {
 }
 
 svg {
-  @apply text-emerald-500;
+  @apply text-red-500;
 }
 
 .active {
-  @apply bg-emerald-200 text-emerald-900;
+  @apply bg-red-200 text-red-900;
 }
 
 .active svg {
-  @apply text-emerald-900;
+  @apply text-red-900;
 }
 </style>

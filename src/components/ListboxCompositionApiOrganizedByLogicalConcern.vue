@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul tabindex="-1">
     <li
       v-for="(option, index) in options"
       :key="option"
@@ -40,23 +40,8 @@ const emit = defineEmits<{
 }>()
 
 
-// DATA
+// ACTIVE
 const active = ref(0)
-
-const elements = ref([])
-
-
-// COMPUTED
-const selected = computed(() => {
-  const index = props.options.indexOf(props.modelValue)
-  return index === -1 ? 0 : index
-})
-
-
-// METHODS
-const select = (index: number) => {
-  emit('update:modelValue', props.options[index])
-}
 
 const activate = (index: number) => {
   active.value = index
@@ -78,20 +63,33 @@ const activateNext = (index: number) => {
   active.value = index + 1
 }
 
+const isActive = (index: number) => {
+  return index === active.value
+}
+
+
+// SELECTED
+const selected = computed(() => {
+  const index = props.options.indexOf(props.modelValue)
+  return index === -1 ? 0 : index
+})
+
+const select = (index: number) => {
+  emit('update:modelValue', props.options[index])
+}
+
 const isSelected = (index: number) => {
   return index === selected.value
 }
 
-const isActive = (index: number) => {
-  return index === active.value
-}
+
+// ELEMENTS
+const elements = ref([])
 
 const setElements = (el, index: number) => {
   elements.value[index] = el
 }
 
-
-// WATCH
 watch(
   active,
   () => {
@@ -100,8 +98,6 @@ watch(
   { flush: 'post' }
 )
 
-
-// LIFECYCLE
 onMounted(() => {
   elements.value[active.value].focus()
 })
@@ -111,13 +107,9 @@ onBeforeUpdate(() => {
 })
 </script>
 
-<style lang="postcss">
+<style scoped lang="postcss">
 ul {
   @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-md;
-}
-
-ul:has(:focus) {
-  @apply ring-2 ring-offset-2 ring-emerald-100;
 }
 
 li {

@@ -1,5 +1,5 @@
 <template>
-  <ul>
+  <ul tabindex="-1">
     <li
       v-for="(option, index) in options"
       :key="option"
@@ -28,6 +28,10 @@
 import { ref, watch, computed, onMounted, onBeforeUpdate } from 'vue'
 import IconCheck from './IconCheck.vue'
 
+const focusEffect = (event) => {
+  console.log('here')
+}
+
 
 // PROPS AND EMIT
 const props = defineProps<{
@@ -40,8 +44,23 @@ const emit = defineEmits<{
 }>()
 
 
-// ACTIVE
+// DATA
 const active = ref(0)
+
+const elements = ref([])
+
+
+// COMPUTED
+const selected = computed(() => {
+  const index = props.options.indexOf(props.modelValue)
+  return index === -1 ? 0 : index
+})
+
+
+// METHODS
+const select = (index: number) => {
+  emit('update:modelValue', props.options[index])
+}
 
 const activate = (index: number) => {
   active.value = index
@@ -63,33 +82,20 @@ const activateNext = (index: number) => {
   active.value = index + 1
 }
 
-const isActive = (index: number) => {
-  return index === active.value
-}
-
-
-// SELECTED
-const selected = computed(() => {
-  const index = props.options.indexOf(props.modelValue)
-  return index === -1 ? 0 : index
-})
-
-const select = (index: number) => {
-  emit('update:modelValue', props.options[index])
-}
-
 const isSelected = (index: number) => {
   return index === selected.value
 }
 
-
-// ELEMENTS
-const elements = ref([])
+const isActive = (index: number) => {
+  return index === active.value
+}
 
 const setElements = (el, index: number) => {
   elements.value[index] = el
 }
 
+
+// WATCH
 watch(
   active,
   () => {
@@ -98,6 +104,8 @@ watch(
   { flush: 'post' }
 )
 
+
+// LIFECYCLE
 onMounted(() => {
   elements.value[active.value].focus()
 })
@@ -107,13 +115,9 @@ onBeforeUpdate(() => {
 })
 </script>
 
-<style lang="postcss">
+<style scoped lang="postcss">
 ul {
   @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-md;
-}
-
-ul:has(:focus) {
-  @apply ring-2 ring-offset-2 ring-emerald-100;
 }
 
 li {
@@ -121,14 +125,14 @@ li {
 }
 
 svg {
-  @apply text-emerald-500;
+  @apply text-amber-500;
 }
 
 .active {
-  @apply bg-emerald-200 text-emerald-900;
+  @apply bg-amber-200 text-amber-900;
 }
 
 .active svg {
-  @apply text-emerald-900;
+  @apply text-amber-900;
 }
 </style>
