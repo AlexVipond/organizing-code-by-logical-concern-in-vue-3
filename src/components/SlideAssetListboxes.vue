@@ -1,8 +1,9 @@
 <template>
-  <section class="mx-auto flex gap-10">
+  <section ref="root" class="mx-auto flex items-center gap-10">
     <section class="w-full max-w-sm flex flex-col gap-4">
-      <label class="w-full text-sm italic tracking-wide text-gray-500">Choose an option:</label>
+      <label class="label w-full">Choose an option:</label>
       <ListboxOptionsApi
+        :autofocus="false"
         :ref="el => meta['listboxOptionsApi'].root = el.$el"
         :options="options"
         v-model="selectedOptionsApi"
@@ -11,8 +12,9 @@
       />
     </section>
     <section class="w-full max-w-sm flex flex-col gap-4">
-      <label class="w-full text-sm italic tracking-wide text-gray-500">Choose an option:</label>
+      <label class="label w-full">Choose an option:</label>
       <ListboxCompositionApiOrganizedByOptions
+        :autofocus="false"
         :ref="el => meta['listboxCompositionApiOrganizedByOptions'].root = el.$el"
         :options="options"
         v-model="selectedCompositionApiOrganizedByOptions"
@@ -21,8 +23,9 @@
       />
     </section>
     <section class="w-full max-w-sm flex flex-col gap-4">
-      <label class="w-full text-sm italic tracking-wide text-gray-500">Choose an option:</label>
+      <label class="label w-full">Choose an option:</label>
       <ListboxCompositionApiOrganizedByLogicalConcern
+        :autofocus="false"
         :ref="el => meta['listboxCompositionApiOrganizedByLogicalConcern'].root = el.$el"
         :options="options"
         v-model="selectedCompositionApiOrganizedByLogicalConcern"
@@ -34,18 +37,36 @@
 </template>
 
 <script setup lang="ts">
-import { shallowRef, ref, reactive, onMounted, onBeforeUnmount, nextTick } from 'vue'
+import { shallowRef, ref, computed, reactive, onMounted, onBeforeUnmount } from 'vue'
 import { show } from '@baleada/vue-features'
+import { useFadeIn, useFadeOut } from '../composition'
 import { options as o } from '../state/options'
 import ListboxOptionsApi from './ListboxOptionsApi.vue'
 import ListboxCompositionApiOrganizedByOptions from './ListboxCompositionApiOrganizedByOptions.vue'
 import ListboxCompositionApiOrganizedByLogicalConcern from './ListboxCompositionApiOrganizedByLogicalConcern.vue'
 
-const props = defineProps<{ slide: number }>()
+const props = defineProps<{ slide: number, order: number }>()
+
+const root = ref<HTMLElement>()
+
+show(
+  { element: root, condition: computed(() => props.slide === props.order ) },
+  { transition: { appear: true, enter: useFadeIn(), leave: useFadeOut() } }
+)
+
 const options = shallowRef(o)
-const selectedOptionsApi = ref(options.value[0])
-const selectedCompositionApiOrganizedByOptions = ref(options.value[0])
-const selectedCompositionApiOrganizedByLogicalConcern = ref(options.value[0])
+const selectedOptionsApi = computed({
+  get: () => meta['listboxOptionsApi'].selected,
+  set: option => meta['listboxOptionsApi'].selected = option
+})
+const selectedCompositionApiOrganizedByOptions = computed({
+  get: () => meta['listboxCompositionApiOrganizedByOptions'].selected,
+  set: option => meta['listboxCompositionApiOrganizedByOptions'].selected = option
+})
+const selectedCompositionApiOrganizedByLogicalConcern = computed({
+  get: () => meta['listboxCompositionApiOrganizedByLogicalConcern'].selected,
+  set: option => meta['listboxCompositionApiOrganizedByLogicalConcern'].selected = option
+})
 
 const listboxes = ['listboxOptionsApi', 'listboxCompositionApiOrganizedByOptions', 'listboxCompositionApiOrganizedByLogicalConcern']
 const meta = reactive({})

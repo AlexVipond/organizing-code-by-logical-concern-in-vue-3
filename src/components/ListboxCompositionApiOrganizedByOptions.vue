@@ -28,15 +28,12 @@
 import { ref, watch, computed, onMounted, onBeforeUpdate } from 'vue'
 import IconCheck from './IconCheck.vue'
 
-const focusEffect = (event) => {
-  console.log('here')
-}
-
 
 // PROPS AND EMIT
 const props = defineProps<{
   options: string[],
   modelValue: string,
+  autofocus: boolean,
 }>()
 
 const emit = defineEmits<{
@@ -107,7 +104,9 @@ watch(
 
 // LIFECYCLE
 onMounted(() => {
-  elements.value[active.value].focus()
+  if (props.autofocus) {
+    elements.value[active.value].focus()
+  }
 })
 
 onBeforeUpdate(() => {
@@ -117,7 +116,7 @@ onBeforeUpdate(() => {
 
 <style scoped lang="postcss">
 ul {
-  @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-md;
+  @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-lg;
 }
 
 li {

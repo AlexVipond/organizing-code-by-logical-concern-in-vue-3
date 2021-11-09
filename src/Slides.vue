@@ -1,19 +1,25 @@
 <template>
-  <section class="relative flex flex-col items center justify-center transition duration-150">
+  <section class="flex flex-col items center justify-center transition duration-150 bg-gray-100">
+    <SlideAssetTitle class="absolute inset-0 p-10" :slide="horizontal.location" :order="0" />
 
-
-    <SlideAssetListboxes :slide="slides.location" />
+    <SlideAssetHighlightedCode class="absolute inset-0 p-10" :slide="horizontal.location" :order="1" />
     
-    <h1 class="absolute left-0 bottom-0 w-full text-xs tracking-widest text-center italic text-gray-500">Organizing Code by Logical Concern in Vue 3</h1>
+    <SlideAssetListboxes class="absolute inset-0 p-10" :slide="horizontal.location" :order="2" />
+    
+    <h1 class="absolute left-0 bottom-4 w-full text-xs tracking-widest text-center italic text-gray-500">Organizing Code by Logical Concern in Vue 3</h1>
   </section>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { onMounted } from 'vue'
 import { useListenable, useNavigateable } from '@baleada/vue-composition'
+import SlideAssetTitle from './components/SlideAssetTitle.vue'
+import SlideAssetHighlightedCode from './components/SlideAssetHighlightedCode.vue'
 import SlideAssetListboxes from './components/SlideAssetListboxes.vue'
 
-const slides = useNavigateable(
+console.log(SlideAssetTitle)
+
+const horizontal = useNavigateable(
   new Array(20)
     .fill(undefined)
     .map((_, index) => index)
@@ -23,7 +29,7 @@ const left = useListenable('left' as '+left'),
       right = useListenable('right' as '+right')
 
 onMounted(() => {
-  left.value.listen(() => slides.value.previous({ loops: false }))
-  right.value.listen(() => slides.value.next({ loops: false }))
+  left.value.listen(() => horizontal.value.previous({ loops: false }))
+  right.value.listen(() => horizontal.value.next({ loops: false }))
 })
 </script>

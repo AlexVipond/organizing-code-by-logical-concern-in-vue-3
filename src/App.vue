@@ -2,9 +2,11 @@
   <main class="
     h-screen w-screen
     flex flex-col gap-10 p-6
-    bg-gray-100 text-gray-900
+    bg-gray-200
   ">
-    <Slides class="h-full w-full"/>
+    <section class="aspect-w-16 aspect-h-9">
+      <Slides />
+    </section>
   </main>
 </template>
 

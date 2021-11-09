@@ -39,6 +39,9 @@ export default defineComponent({
     },
     modelValue: {
       type: String,
+    },
+    autofocus: {
+      type: Boolean,
     }
   },
   data: () => ({
@@ -88,7 +91,9 @@ export default defineComponent({
     }
   },
   mounted () {
-    this.elements[this.active].focus()
+    if (this.autofocus) {
+      this.elements[this.active].focus()
+    }
   },
   beforeUpdate () {
     this.elements = []
@@ -98,7 +103,7 @@ export default defineComponent({
 
 <style scoped lang="postcss">
 ul {
-  @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-md;
+  @apply w-full h-96 flex flex-col gap-3 overflow-scroll bg-white rounded shadow-lg;
 }
 
 ul:has(:focus) {
