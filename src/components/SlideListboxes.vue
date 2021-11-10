@@ -1,5 +1,6 @@
 <template>
   <section ref="root" class="mx-auto flex items-center gap-10">
+    <h2 class="slide-title">Three listboxes</h2>
     <section class="w-full max-w-sm flex flex-col gap-4">
       <label class="label w-full">Choose an option:</label>
       <ListboxOptionsApi
@@ -10,6 +11,7 @@
         class="ring-4 ring-offset-4 ring-red-300 transition duration-150"
         :class="[meta['listboxOptionsApi'].status === 'focused' ? 'ring-opacity-100' : 'ring-opacity-0']"
       />
+      <h2 class="italic text-sm text-gray-700">Options API</h2>
     </section>
     <section class="w-full max-w-sm flex flex-col gap-4">
       <label class="label w-full">Choose an option:</label>
@@ -21,6 +23,7 @@
         class="ring-4 ring-offset-4 ring-amber-300 transition duration-150"
         :class="[meta['listboxCompositionApiOrganizedByOptions'].status === 'focused' ? 'ring-opacity-100' : 'ring-opacity-0']"
       />
+      <h2 class="italic text-sm text-gray-700">Composition API, organized by options</h2>
     </section>
     <section class="w-full max-w-sm flex flex-col gap-4">
       <label class="label w-full">Choose an option:</label>
@@ -32,6 +35,7 @@
         class="ring-4 ring-offset-4 ring-emerald-300 transition duration-150"
         :class="[meta['listboxCompositionApiOrganizedByLogicalConcern'].status === 'focused' ? 'ring-opacity-100' : 'ring-opacity-0']"
       />
+      <h2 class="italic text-sm text-gray-700">Composition API, organized by logical concern</h2>
     </section>
   </section>
 </template>

@@ -34,7 +34,9 @@ module.exports = {
   plugins: [
     require('@tailwindcss/aspect-ratio'),
     plugin(({ addComponents }) => addComponents({
-      '.label': apply('text-sm font-semibold tracking-wide text-gray-700')
+      '.label': apply('text-sm font-semibold tracking-wide text-gray-700'),
+      '.inaccessible': apply('opacity-0 pointer-events-none select-none'),
+      '.slide-title': apply('absolute left-4 bottom-4 right-4 text-sm italic text-gray-600'),
     }))
   ],
 }

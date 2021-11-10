@@ -33,7 +33,6 @@ export function useFadeIn (): Transition {
   
   return {
     active: ({ element, done }) => {
-      console.log(element.style.display)
       shallowStore.value.done = done
       
       delayable.value.effect = () => {
