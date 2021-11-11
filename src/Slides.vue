@@ -23,7 +23,9 @@
     
     <SlideTactics class="absolute inset-0 p-14" :slide="x.location" :xOrder="6" />
     
-    <SlideEnd class="absolute inset-0 p-14" :slide="x.location" :xOrder="7" />
+    <SlideListboxBonus class="absolute inset-0 p-14" :slide="x.location" :xOrder="7" />
+    
+    <SlideEnd class="absolute inset-0 p-14" :slide="x.location" :xOrder="8" />
     
     <h1 class="slide-title text-right duration-200 delay-300" :class="{ inaccessible: x.location < 1 }">Organizing Code by Logical Concern in Vue 3</h1>
   </section>
@@ -39,6 +41,7 @@ import SlideOrganizationHow from './components/SlideOrganizationHow.vue'
 import SlideHighlightedCode from './components/SlideHighlightedCode.vue'
 import SlideListboxes from './components/SlideListboxes.vue'
 import SlideTactics from './components/SlideTactics.vue'
+import SlideListboxBonus from './components/SlideListboxBonus.vue'
 import SlideEnd from './components/SlideEnd.vue'
 
 console.log(SlideTitle)
@@ -51,7 +54,7 @@ nextTick(() => status.value = 'shown')
 
 // NAVIGATION
 const x = useNavigateable(
-  new Array(8).fill(0).map((_, index) => index)
+  new Array(9).fill(0).map((_, index) => index)
 )
 
 const left = useListenable('left' as '+left'),
