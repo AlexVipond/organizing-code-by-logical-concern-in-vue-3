@@ -1,6 +1,6 @@
 <template>
   <section ref="root">
-    <h2 class="slide-title">The promise of Vue 3</h2>
+    <h1 class="slide-title">The promise of Vue 3</h1>
     <section class="flex items-start justify-center gap-16 pb-20">
       <section
         class="w-48 flex flex-col gap-1 duration-300"

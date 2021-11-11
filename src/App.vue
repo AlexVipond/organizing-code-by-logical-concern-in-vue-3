@@ -1,14 +1,6 @@
 <template>
-  <main class="
-    h-screen w-screen
-    flex items-center justify-center
-    bg-gray-900
-  ">
-    <section class="w-[98vw]">
-      <section class="aspect-w-16 aspect-h-9">
-        <Slides />
-      </section>
-    </section>
+  <main class="w-[1280px] h-[720px] bg-primary-900">
+    <Slides class="h-full w-full" />
   </main>
 </template>
 

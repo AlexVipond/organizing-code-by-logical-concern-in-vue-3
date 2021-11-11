@@ -1,34 +1,34 @@
 <template>
   <section ref="root" class="h-full flex flex-col items-center">
-    <h2 class="slide-title">Why organize by logical concern?</h2>
+    <h1 class="slide-title">Why organize by logical concern?</h1>
     <section class="grid grid-cols-2 pt-12 gap-20">
       <section class="flex flex-col gap-6">
-        <h3 class="text-3xl font-extrabold text-primary-900">Why organize by options?</h3>
+        <h2 class="text-3xl font-extrabold text-primary-900">Why organize by options?</h2>
         <ImageWtfsOverTimeOptions
           class="w-96 text-red-500 duration-300"
           :class="{ inaccessible: y.location < 1 }"
         />
         <section class="flex flex-col gap-2 text-xl">
           <p class="duration-300" :class="{ inaccessible: y.location < 2 }">
-            Fewer "where the F's?" initially
+            🙂 Fewer "where the F's?" initially
           </p>
           <p class="duration-300" :class="{ inaccessible: y.location < 3 }">
-            Over time, "where the F?" count grows steadily
+            🤮 Over time, "where the F?" count grows steadily
           </p>
         </section>
       </section>
       <section class="flex flex-col gap-6">
-        <h3 class="text-3xl font-extrabold text-primary-900">Why organized by logical concern?</h3>
+        <h2 class="text-3xl font-extrabold text-primary-900">Why organize by logical concern?</h2>
         <ImageWtfsOverTimeLogicalConcerns
           class="w-96 text-emerald-500 duration-300"
           :class="{ 'inaccessible': y.location < 4 }"
         />
         <section class="flex flex-col gap-2 text-xl">
           <p class="duration-300" :class="{ inaccessible: y.location < 5 }">
-            Plenty of "where the F's?" initially
+            😖 Plenty of "where the F's?" initially
           </p>
           <p class="duration-300" :class="{ inaccessible: y.location < 6 }">
-            Over time, "where the F?" count stays low
+            🤩 Over time, "where the F?" count stays low
           </p>
         </section>
       </section>

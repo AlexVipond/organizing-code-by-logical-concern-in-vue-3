@@ -1,6 +1,6 @@
 <template>
   <section ref="root" class="mx-auto flex items-center gap-10">
-    <h2 class="slide-title">Three listboxes</h2>
+    <h1 class="slide-title">The three listboxes</h1>
     <section class="w-full max-w-sm flex flex-col gap-4">
       <label class="label w-full">Choose an option:</label>
       <ListboxOptionsApi

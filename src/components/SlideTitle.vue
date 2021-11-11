@@ -5,12 +5,15 @@
       <span class="mt-2 text-6xl font-bold text-primary-1000">by Logical Concern</span>
       <span class="mt-4 text-3xl font-extrabold tracking-widest uppercase text-primary-900">in Vue 3</span>
     </h1>
-    <h3 class="mt-10 text-xl">Alex Vipond</h3>
-    <a
-      href="https://vueconf.alexvipond.dev"
-      rel="noopener noreferrer"
-      class="mt-1 text-primary-600 hover:underline"
-    >vueconf.alexvipond.dev</a>
+    <h2 class="mt-10 text-xl">Alex Vipond</h2>
+    <p class="mt-1">
+      <span>Talk notes at </span>
+      <a
+        href="https://talks.alexvipond.dev"
+        rel="noopener noreferrer"
+        class="text-primary-600 hover:underline"
+      >talks.alexvipond.dev</a>
+    </p>
   </section>
 </template>
 

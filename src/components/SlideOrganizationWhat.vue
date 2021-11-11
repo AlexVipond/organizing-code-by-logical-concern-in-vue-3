@@ -1,9 +1,9 @@
 <template>
   <section ref="root" class="h-full flex flex-col items-center">
-    <h2 class="slide-title">What does it mean to organize by logical concern?</h2>
+    <h1 class="slide-title">What does it mean to organize by logical concern?</h1>
     <section class="grid grid-cols-2 pt-12 gap-20">
       <section class="flex flex-col gap-10 max-w-md">
-        <h3 class="text-3xl font-extrabold text-primary-900">What are options?</h3>
+        <h2 class="text-3xl font-extrabold text-primary-900">What are options?</h2>
         <p class="text-2xl p-2 text-red-900 bg-red-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 1 }">
           Options are categories that describe what your code <span class="font-extrabold">is</span>.
         </p>
@@ -26,7 +26,7 @@
         </p>
       </section>
       <section class="flex flex-col gap-10 max-w-md">
-        <h3 class="text-3xl font-extrabold text-primary-900">What are logical concerns?</h3>
+        <h2 class="text-3xl font-extrabold text-primary-900">What are logical concerns?</h2>
         <p class="text-2xl p-2 text-emerald-900 bg-emerald-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 4 }">
           Logical concerns are categories that describe what your code <span class="font-extrabold">does</span>.
         </p>
