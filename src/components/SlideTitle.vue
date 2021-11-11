@@ -19,12 +19,12 @@ import { ref, computed } from 'vue'
 import { show } from '@baleada/vue-features'
 import { useFadeIn, useFadeOut } from '../composition'
 
-const props = defineProps<{ slide: number, order: number }>()
+const props = defineProps<{ slide: number, xOrder: number }>()
 
 const root = ref<HTMLElement>()
 
 show(
-  { element: root, condition: computed(() => props.slide === props.order ) },
+  { element: root, condition: computed(() => props.slide === props.xOrder ) },
   { transition: { appear: true, enter: useFadeIn(), leave: useFadeOut() } }
 )
 </script>

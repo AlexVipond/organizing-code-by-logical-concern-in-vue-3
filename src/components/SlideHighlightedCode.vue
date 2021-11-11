@@ -5,7 +5,7 @@
       <section
         class="w-48 flex flex-col gap-1 duration-300"
         :class="{
-          'translate-x-1/2': vertical.location < 1,
+          'translate-x-1/2': y.location < 1,
         }"
       >
         <img
@@ -13,22 +13,22 @@
           alt="Highlighted code"
           class="w-full"
         >
-        <h2 class="italic text-sm text-gray-700">Options API</h2>
+        <h2 class="text-gray-700">Options API</h2>
       </section>
       
-      <section class="w-48 flex flex-col gap-1 transition duration-300" :class="{ inaccessible: vertical.location < 1 }">
+      <section class="w-48 flex flex-col gap-1 transition duration-300" :class="{ inaccessible: y.location < 1 }">
         <img
           src="/highlighted-listbox-composition-api-organized-by-options.png"
           alt="Highlighted code"
           class="w-full"
         >
-        <h2 class="italic text-sm text-gray-700">Composition API, organized by options</h2>
+        <h2 class="text-gray-700">Composition API, organized by options</h2>
       </section>
       
       <section
         class="w-48 flex flex-col gap-1 duration-300"
         :class="{
-          '-translate-x-1/2': vertical.location < 1,
+          '-translate-x-1/2': y.location < 1,
         }"
       >
         <img
@@ -36,7 +36,7 @@
           alt="Highlighted code"
           class="w-full"
         >
-        <h2 class="italic text-sm text-gray-700">Composition API, organized by logical concern</h2>
+        <h2 class="text-gray-700">Composition API, organized by logical concern</h2>
       </section>
     </section>
   </section>
@@ -45,16 +45,16 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import { show } from '@baleada/vue-features'
-import { useFadeIn, useFadeOut, useVertical } from '../composition'
+import { useFadeIn, useFadeOut, useY } from '../composition'
 
-const props = defineProps<{ slide: number, order: number }>()
+const props = defineProps<{ slide: number, xOrder: number }>()
 
 const root = ref<HTMLElement>()
 
 show(
-  { element: root, condition: computed(() => props.slide === props.order ) },
+  { element: root, condition: computed(() => props.slide === props.xOrder ) },
   { transition: { appear: true, enter: useFadeIn(), leave: useFadeOut() } }
 )
 
-const vertical = useVertical({ length: 2, slide: computed(() => props.slide), order: props.order })
+const { y } = useY({ length: 2, slide: computed(() => props.slide), xOrder: props.xOrder })
 </script>

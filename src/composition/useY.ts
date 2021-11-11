@@ -2,27 +2,26 @@ import { watch } from 'vue'
 import type { Ref } from 'vue'
 import { useNavigateable, useListenable } from '@baleada/vue-composition'
 
-export function useVertical ({ length, slide, order }: { length: number, slide: Ref<number>, order: number }) {
-  const vertical = useNavigateable(
-    new Array(length)
-      .fill(undefined)
-      .map((_, index) => index)
+export function useY ({ length, slide, xOrder }: { length: number, slide: Ref<number>, xOrder: number }) {
+  const y = useNavigateable(
+    new Array(length).fill(0).map((_, i) => i)
   )
+
 
   const up = useListenable('up' as '+up'),
         down = useListenable('down' as '+down')
 
   watch(
-    () => slide.value,
+    slide,
     () => {
-      if (slide.value === order) {
+      if (slide.value === xOrder) {
         up.value.listen(event => {
           event.preventDefault()
-          vertical.value.previous({ loops: false })
+          y.value.previous({ loops: false })
         })
         down.value.listen(event => {
           event.preventDefault()
-          vertical.value.next({ loops: false })
+          y.value.next({ loops: false })
         })
         return
       }
@@ -37,5 +36,5 @@ export function useVertical ({ length, slide, order }: { length: number, slide: 
     }
   )
 
-  return vertical
+  return { y }
 }

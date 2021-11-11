@@ -49,12 +49,12 @@ import ListboxOptionsApi from './ListboxOptionsApi.vue'
 import ListboxCompositionApiOrganizedByOptions from './ListboxCompositionApiOrganizedByOptions.vue'
 import ListboxCompositionApiOrganizedByLogicalConcern from './ListboxCompositionApiOrganizedByLogicalConcern.vue'
 
-const props = defineProps<{ slide: number, order: number }>()
+const props = defineProps<{ slide: number, xOrder: number }>()
 
 const root = ref<HTMLElement>()
 
 show(
-  { element: root, condition: computed(() => props.slide === props.order ) },
+  { element: root, condition: computed(() => props.slide === props.xOrder ) },
   { transition: { appear: true, enter: useFadeIn(), leave: useFadeOut() } }
 )
 
