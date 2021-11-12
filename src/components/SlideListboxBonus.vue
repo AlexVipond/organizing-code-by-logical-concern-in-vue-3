@@ -13,6 +13,7 @@
       />
       <h2 class="italic text-sm text-gray-700">Bonus!</h2>
     </section>
+    <ToastListboxKeystrokes class="absolute bottom-4 left-1/2 -translate-x-1/2" :slide="slide" :xOrder="xOrder" />
   </section>
 </template>
 
@@ -22,6 +23,7 @@ import { show } from '@baleada/vue-features'
 import { useFadeIn, useFadeOut } from '../composition'
 import { options as o } from '../state/options'
 import ListboxBonus from './ListboxBonus.vue'
+import ToastListboxKeystrokes from './ToastListboxKeystrokes.vue'
 
 const props = defineProps<{ slide: number, xOrder: number }>()
 

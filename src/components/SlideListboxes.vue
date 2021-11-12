@@ -37,6 +37,7 @@
       />
       <h2 class="italic text-sm text-gray-700">Composition API, organized by logical concern</h2>
     </section>
+    <ToastListboxKeystrokes class="absolute bottom-4 left-1/2 -translate-x-1/2" :slide="slide" :xOrder="xOrder" />
   </section>
 </template>
 
@@ -48,6 +49,7 @@ import { options as o } from '../state/options'
 import ListboxOptionsApi from './ListboxOptionsApi.vue'
 import ListboxCompositionApiOrganizedByOptions from './ListboxCompositionApiOrganizedByOptions.vue'
 import ListboxCompositionApiOrganizedByLogicalConcern from './ListboxCompositionApiOrganizedByLogicalConcern.vue'
+import ToastListboxKeystrokes from './ToastListboxKeystrokes.vue'
 
 const props = defineProps<{ slide: number, xOrder: number }>()
 
