@@ -5,7 +5,7 @@
     <section class="grid grid-cols-1 pt-12 gap-20">
       <section class="flex flex-col gap-6 max-w-md text-xl">
         <p class="duration-300" :class="{ inaccessible: y.location < 1 }">
-          Often, each <code>data</code> property is the foundation of a separate logical concern. Create a section for each one.
+          Often, each <code>data</code> and <code>computed</code> property is the foundation of a separate logical concern. Create a section for each one.
         </p>
         <p class="duration-300" :class="{ inaccessible: y.location < 2 }">
           Within sections, start with reactive state, then write methods, then write side effects.
