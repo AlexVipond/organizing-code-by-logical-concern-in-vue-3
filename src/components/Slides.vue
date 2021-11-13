@@ -32,24 +32,26 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue'
-import { useListenable, useNavigateable } from '@baleada/vue-composition'
-import SlideTitle from './components/SlideTitle.vue'
-import SlideOrganizationWhat from './components/SlideOrganizationWhat.vue'
-import SlideOrganizationWhy from './components/SlideOrganizationWhy.vue'
-import SlideOrganizationHow from './components/SlideOrganizationHow.vue'
-import SlideHighlightedCode from './components/SlideHighlightedCode.vue'
-import SlideListboxes from './components/SlideListboxes.vue'
-import SlideTactics from './components/SlideTactics.vue'
-import SlideListboxBonus from './components/SlideListboxBonus.vue'
-import SlideEnd from './components/SlideEnd.vue'
+import { ref, onMounted } from 'vue'
+import { useDelayable, useListenable, useNavigateable } from '@baleada/vue-composition'
+import SlideTitle from './SlideTitle.vue'
+import SlideOrganizationWhat from './SlideOrganizationWhat.vue'
+import SlideOrganizationWhy from './SlideOrganizationWhy.vue'
+import SlideOrganizationHow from './SlideOrganizationHow.vue'
+import SlideHighlightedCode from './SlideHighlightedCode.vue'
+import SlideListboxes from './SlideListboxes.vue'
+import SlideTactics from './SlideTactics.vue'
+import SlideListboxBonus from './SlideListboxBonus.vue'
+import SlideEnd from './SlideEnd.vue'
 
 console.log(SlideTitle)
 
 
 // STATUS
+// TODO: fix show timing somehow
 const status = ref<'showing' | 'shown'>('showing')
-nextTick(() => status.value = 'shown')
+const delayable = useDelayable(() => status.value = 'shown', { delay: 100 })
+onMounted(() => delayable.value.delay())
 
 
 // NAVIGATION

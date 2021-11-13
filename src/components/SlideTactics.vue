@@ -8,13 +8,13 @@
           Often, each <code>data</code> property is the foundation of a separate logical concern. Create a section for each one.
         </p>
         <p class="duration-300" :class="{ inaccessible: y.location < 2 }">
-          Within sections, follow a consistent, options-inspired order, e.g. <code>data</code> → <code>computed</code> → <code>methods</code> → <code>watch</code> → lifecycle hooks.
+          Within sections, start with reactive state, then write methods, then write side effects.
         </p>
         <p class="duration-300" :class="{ inaccessible: y.location < 3 }">
-          Don't be afraid to create multiple watchers, multiple event handlers for the same event, and multiple lifecycle hooks of the same type.
+          Create multiple watchers for the same reactive state, and multiple lifecycle hooks of the same type, multiple event handlers for the same event.
         </p>
         <p class="duration-300" :class="{ inaccessible: y.location < 4 }">
-          <span class="font-bold">Be consistent!</span>
+          <span class="font-bold">Be consistent.</span>
         </p>
         <p class="p-2 text-emerald-900 bg-emerald-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 5 }">
           Bonus: organize <span class="font-bold">template-related code</span> by logical concern.

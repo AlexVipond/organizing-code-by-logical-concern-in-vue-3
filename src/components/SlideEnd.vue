@@ -27,16 +27,12 @@
           <span>Link to new ebook, <span class="font-bold">Rethinking Reusability in Vue</span>, expanding on this talk's ideas</span>
         </p>
         <p class="flex items-start gap-2">
-          <span>🛠️</span>
-          <span>Live demos of the three listboxes</span>
-        </p>
-        <p class="flex items-start gap-2">
           <span>🔗</span>
           <span>Link to git repo for this talk's code</span>
         </p>
         <p class="flex items-start gap-2">
           <span>📽️</span>
-          <span>A live copy of this slideshow</span>
+          <span>A live copy of this slideshow, including live demos of the listboxes</span>
         </p>
         <p class="flex items-start gap-2">
           <span>📹</span>
