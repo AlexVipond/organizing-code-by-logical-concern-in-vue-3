@@ -3,7 +3,6 @@
     <li
       v-for="(option, index) in options"
       :key="option"
-      :ref="el => setElements(el, index)"
       :tabindex="isSelected(index) ? 0 : -1"
       @mouseover="() => activate(index)"
       @keydown.down.prevent="() => activateNext(index)"
@@ -13,6 +12,7 @@
       @keydown.enter.prevent="() => select(index)"
       @keydown.space.prevent="() => select(index)"
       @click="() => select(index)"
+      :ref="el => setElements(el, index)"
       :class="{
         'active': isActive(index),
         'selected': isSelected(index),
