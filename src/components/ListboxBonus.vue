@@ -53,6 +53,46 @@ onBeforeUpdate(() => {
 })
 
 
+// SELECTED
+const selected = computed(() => {
+  const index = props.options.indexOf(props.modelValue)
+  return index === -1 ? 0 : index
+})
+
+const select = (index: number) => {
+  emit('update:modelValue', props.options[index])
+}
+
+const isSelected = (index: number) => {
+  return index === selected.value
+}
+
+bind({
+  element: elements,
+  values: {
+    tabindex: {
+      get: ({ index }) => isSelected(index) ? 0 : -1,
+      watchSources: selected,
+    },
+  }
+})
+
+on<any>({
+  element: elements,
+  effects: {
+    click: {
+      createEffect: ({ index }) => () => select(index),
+    },
+    space: {
+      createEffect: ({ index }) => () => select(index),
+    },
+    enter: {
+      createEffect: ({ index }) => () => select(index),
+    },
+  }
+})
+
+
 // ACTIVE
 const active = ref(0)
 
@@ -83,9 +123,6 @@ const isActive = (index: number) => {
 on<any>({
   element: elements,
   effects: {
-    mouseover: {
-      createEffect: ({ index }) => () => activate(index),
-    },
     'cmd+down': event => {
       event.preventDefault()
       activate(props.options.length - 1)
@@ -93,6 +130,9 @@ on<any>({
     'cmd+up': event => {
       event.preventDefault()
       activate(0)
+    },
+    mouseover: {
+      createEffect: ({ index }) => () => activate(index),
     },
     down: {
       createEffect: ({ index }) => event => {
@@ -105,46 +145,6 @@ on<any>({
         event.preventDefault()
         activatePrevious(index)
       }
-    },
-  }
-})
-
-
-// SELECTED
-const selected = computed(() => {
-  const index = props.options.indexOf(props.modelValue)
-  return index === -1 ? 0 : index
-})
-
-const select = (index: number) => {
-  emit('update:modelValue', props.options[index])
-}
-
-const isSelected = (index: number) => {
-  return index === selected.value
-}
-
-bind({
-  element: elements,
-  values: {
-    tabindex: {
-      get: ({ index }) => index === selected.value ? 0 : -1,
-      watchSources: selected,
-    },
-  }
-})
-
-on<any>({
-  element: elements,
-  effects: {
-    click: {
-      createEffect: ({ index }) => () => select(index),
-    },
-    space: {
-      createEffect: ({ index }) => () => select(index),
-    },
-    enter: {
-      createEffect: ({ index }) => () => select(index),
     },
   }
 })
