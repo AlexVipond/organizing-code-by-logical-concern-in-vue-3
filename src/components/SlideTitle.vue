@@ -1,12 +1,11 @@
 <template>
   <section ref="root" class="flex flex-col items-center justify-center">
     <h1 class="flex flex-col items-center justify-center">
-      <span class="text-3xl font-extrabold tracking-widest uppercase text-primary-900">Organizing Code</span>
-      <span class="mt-2 text-6xl font-bold text-primary-1000">by Logical Concern</span>
-      <span class="mt-4 text-3xl font-extrabold tracking-widest uppercase text-primary-900">in Vue 3</span>
+      <span class="text-3xl font-extrabold tracking-[.5rem] uppercase text-primary-900/70">Organizing Code</span>
+      <span class="mt-5 text-6xl font-bold text-primary-1000">by Logical Concern</span>
+      <span class="mt-7 text-3xl font-extrabold tracking-[.5rem] uppercase text-primary-900/70">in Vue 3</span>
     </h1>
-    <h2 class="mt-10 text-xl">Alex Vipond</h2>
-    <p class="mt-1">
+    <p class="mt-10 text-xl">
       <span>Talk notes at </span>
       <a
         href="https://talks.alexvipond.dev"

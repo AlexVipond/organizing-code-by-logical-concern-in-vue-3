@@ -11,7 +11,7 @@
           Within sections, start with reactive state, then write methods, then write side effects.
         </p>
         <p class="duration-300" :class="{ inaccessible: y.location < 3 }">
-          Create multiple watchers for the same reactive state, and multiple lifecycle hooks of the same type, multiple event handlers for the same event.
+          Avoid the temptation to mix concerns inside watchers, lifecycle hooks, and event handlers.
         </p>
         <p class="duration-300" :class="{ inaccessible: y.location < 4 }">
           <span class="font-bold">Be consistent.</span>

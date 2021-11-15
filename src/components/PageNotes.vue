@@ -1,15 +1,15 @@
 <template>
   <header ref="root" class="flex flex-col py-20 items-center justify-center bg-gray-100">
     <h1 class="flex flex-col items-center justify-center">
-      <span class="text-3xl font-extrabold tracking-widest uppercase text-primary-900">Organizing Code</span>
-      <span class="mt-2 text-6xl font-bold text-primary-1000">by Logical Concern</span>
-      <span class="mt-4 text-3xl font-extrabold tracking-widest uppercase text-primary-900">in Vue 3</span>
+      <span class="text-3xl font-extrabold tracking-[.5rem] uppercase text-primary-900/70">Organizing Code</span>
+      <span class="mt-5 text-6xl font-bold text-primary-1000">by Logical Concern</span>
+      <span class="mt-7 text-3xl font-extrabold tracking-[.5rem] uppercase text-primary-900/70">in Vue 3</span>
     </h1>
     <section class="mt-10 flex flex-col items-center gap-2">
       <img
         src="/headshot.jpg"
         alt="headshot"
-        class="h-12 w-12 rounded-full shadow-md"
+        class="h-20 w-20 rounded-full shadow-md"
       />
       <h2 class="text-xl">Alex Vipond</h2>
     </section>

@@ -21,16 +21,13 @@
             ...etc.
           </p>
         </section>
-        <p class="mt-auto text-2xl p-2 text-red-900 bg-red-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 3 }">
-          Code inside each category <span class="font-bold">is not</span> tightly coupled.
-        </p>
       </section>
       <section class="flex flex-col gap-10 max-w-md">
         <h2 class="text-3xl font-extrabold text-primary-900">What are logical concerns?</h2>
-        <p class="text-2xl p-2 text-emerald-900 bg-emerald-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 4 }">
+        <p class="text-2xl p-2 text-emerald-900 bg-emerald-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 3 }">
           Logical concerns are categories that describe what your code <span class="font-extrabold">does</span>.
         </p>
-        <section class="flex flex-col gap-3 text-xl duration-300" :class="{ inaccessible: y.location < 5 }">
+        <section class="flex flex-col gap-3 text-xl duration-300" :class="{ inaccessible: y.location < 4 }">
           <p>
             Each <span class="font-bold">feature</span> in your <code>setup</code> or composition function is a logical concern
           </p>
@@ -41,9 +38,6 @@
             There's <span class="font-bold">no limit</span> to the number of concerns you can have in a given function
           </p>
         </section>
-        <p class="mt-auto text-2xl p-2 text-emerald-900 bg-emerald-100 rounded-sm shadow-md duration-300" :class="{ inaccessible: y.location < 6 }">
-          Code inside each category <span class="font-bold">is</span> tightly coupled.
-        </p>
       </section>
     </section>
   </section>
@@ -63,5 +57,5 @@ show(
   { transition: { appear: true, enter: useFadeIn(), leave: useFadeOut() } }
 )
 
-const { y } = useY({ length: 7, slide: computed(() => props.slide), xOrder: props.xOrder })
+const { y } = useY({ length: 6, slide: computed(() => props.slide), xOrder: props.xOrder })
 </script>
