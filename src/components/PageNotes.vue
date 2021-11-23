@@ -20,9 +20,10 @@
   <main class="py-20 bg-gray-100">
     <section class="mx-auto flex flex-col gap-12 max-w-lg text-xl">
       <h2 class="mx-auto text-sm font-bold text-gray-600 uppercase tracking-widest">Talk notes</h2>
-      <p>If you enjoyed the talk, and you're interested in taking its ideas even further, check out <span class="font-bold">Rethinking Reusability in Vue</span> (link coming soon!), a new ebook that rethinks and revises design patterns that emerged from Vue 2.</p>
+      <p>If you enjoyed the talk, and you're interested in taking its ideas even further, check out <a href="https://rethinking-reusability-in-vue.alexvipond.dev" class="text-primary-500 hover:underline">Rethinking Reusability in Vue</a>, a new ebook with 100+ pages rethinking and revising design patterns and best practices in Vue 3. Use code <span class="font-extrabold">TORONTO</span> for $10 (25%) off at checkout.</p>
       <p>You can find a live copy of the slides at <RouterLink class="text-primary-500 hover:underline" to="/slides">/slides</RouterLink>.</p>
       <p>All the code for this talk can be found <a href="https://github.com/AlexVipond/organizing-code-by-logical-concern-in-vue-3" class="text-primary-500 hover:underline">on GitHub</a>.</p>
+      <p>In the talk, we studied simplified custom listboxes. For a production-ready, deeply accessible listbox, check out <a href="https://baleada.dev/docs/features/interfaces/listbox" class="text-primary-500 hover:underline">my free open source project, Baleada Features</a>.</p>
       <p>For videos on related concepts, like <span class="font-bold">Vue 3 function refs</span>, check out <a href="https://www.youtube.com/watch?v=EiqwYep8QEA&list=PLHP34VGeo17cM-KEwvc-Ualz54rzoFkPQ" class="text-primary-500 hover:underline">this YouTube playlist</a>.</p>
     </section>
   </main>
